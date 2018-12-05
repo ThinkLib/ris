@@ -1,6 +1,6 @@
 {
   "name": "@ris/add",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "main": "src/index.js",
   "description": "ris add command.",
   "license": "MIT",

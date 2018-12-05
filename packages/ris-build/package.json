@@ -1,6 +1,6 @@
 {
   "name": "@ris/build",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "main": "src/index.js",
   "description": "ris build command.",
   "license": "MIT",
@@ -25,8 +25,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@ris/utils": "^0.0.5",
-    "@ris/webpack-config": "^0.0.5",
+    "@ris/utils": "^0.0.7",
+    "@ris/webpack-config": "^0.0.7",
     "chalk": "^2.3.2",
     "del": "^3.0.0"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@ris/mock",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "src/index.js",
   "description": "ris mock middleware.",
   "license": "MIT",

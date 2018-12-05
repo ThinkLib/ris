@@ -1,6 +1,6 @@
 {
   "name": "@ris/init",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "src/index.js",
   "description": "ris init command.",
   "license": "MIT",
