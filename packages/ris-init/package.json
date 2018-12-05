@@ -1,0 +1,36 @@
+{
+  "name": "@ris/init",
+  "version": "0.0.6",
+  "main": "src/index.js",
+  "description": "ris init command.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "keywords": [
+    "ris",
+    "cli",
+    "init"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "beyondxgb@gmail.com",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@ris/utils": "^0.0.5",
+    "chalk": "^2.3.2",
+    "cross-spawn": "^6.0.5",
+    "inquirer": "^5.1.0",
+    "package-json": "^4.0.1",
+    "through2": "^2.0.3",
+    "vinyl-fs": "^3.0.2"
+  }
+}
