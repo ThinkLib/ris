@@ -38,17 +38,31 @@ npm init ris <appName>
 
 ### yarn
 ```bash
-yarn create ris <appName> 
+yarn create ris <appName>
 ```
 > `yarn create` is available in Yarn 0.25+
 
 Inside the application, you can run following scripts:
 
 ### `npm start`
+Startup the application in development mode. You can open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run add`
+Add page and component quickly. You can highly customize the template of page and component in the 'tools/generators'.
 
 ### `npm run build`
+Build the application in production mode. It will default build to the `build` folder.
+
+## Examples
+Built-in empty and standard application. You can use [create-ris](https://github.com/risjs/create-ris) to create a applicatioin to experience.
+
+More:
+
+* [Enterprise](), An enterprise-level appliction that built-in ant-design.
+* [Mobile](), A mobile web appliction that integrate excellent solutions.
+
+## Documentation
+Learn more about the details and instructions, you can read about [UserGuide](https://github.com/risjs/ris/docs/guide.md).
 
 ## LICENSE
 MIT
