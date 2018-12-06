@@ -1,8 +1,7 @@
 # RIS
-[npm-image]: https://img.shields.io/npm/v/@ris/cli.svg
-[npm-url]: https://www.npmjs.com/package/@ris/cli
-[downloads-image]: https://img.shields.io/npm/dm/@ris/cli.svg
-[downloads-url]: https://npmjs.org/package/@ris/cli
+
+[![npm version](https://img.shields.io/npm/v/@ris/cli.svg?colorB=007ec6&style=flat-square)](https://www.npmjs.com/package/@ris/cli)
+[![npm downloads](https://img.shields.io/npm/dm/@ris/cli.svg?style=flat-square)](https://www.npmjs.com/package/@ris/cli)
 
 React Integrated Solution. Inspired by [create-react-app](https://github.com/facebook/create-react-app).
 
