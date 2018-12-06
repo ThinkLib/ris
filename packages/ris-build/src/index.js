@@ -47,7 +47,10 @@ module.exports = {
     // user config
     const userWebpackConfig = getUserWebpackConfig();
     // merge config
-    const webpackConfig = mergeWebpackConfig(userWebpackConfig.prod, webpackConfigProd);
+    const webpackConfig = mergeWebpackConfig(
+      mergeWebpackConfig(userWebpackConfig.prod, userWebpackConfig.base),
+      webpackConfigProd,
+    );
     try {
       await clean(webpackConfig.output.path);
     } catch (err) {
