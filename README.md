@@ -67,7 +67,7 @@ More:
 * [Mobile](), A mobile web appliction that integrate excellent solutions.
 
 ## Documentation
-Learn more about the details and instructions, you can read about [UserGuide](https://github.com/risjs/ris/docs/guide.md).
+Learn more about the details and instructions, you can read about [UserGuide](https://github.com/risjs/ris/blob/master/docs/guide.md).
 
 ## LICENSE
 MIT
