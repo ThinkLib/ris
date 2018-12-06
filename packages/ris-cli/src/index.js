@@ -58,7 +58,7 @@ function registerCommand() {
     } = commands[i];
     const cmdObj = program.command(command).description(description).allowUnknownOption();
     if (name !== '') {
-      const cmdPath = path.join(__dirname, '../node_modules', `@ris/${name}`);
+      const cmdPath = `@ris/${name}`;
       if (options) {
         // add command options
         options.forEach((option) => {
