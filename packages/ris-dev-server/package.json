@@ -34,7 +34,7 @@
     "is-root": "^1.0.0",
     "lodash": "^4.17.5",
     "react-dev-utils": "^5.0.0",
-    "webpack": "^4.17.1",
+    "webpack": "^4.27.1",
     "webpack-dev-server": "^3.1.7"
   }
 }
