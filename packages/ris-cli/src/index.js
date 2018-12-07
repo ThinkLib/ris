@@ -116,7 +116,7 @@ updater({
   abort: false,
   level: 'patch',
   registry: 'https://registry.npm.taobao.org',
-  updateMessage: `\nPlease run ${chalk.magenta('npm i @ris/cli -g')} to install.`,
+  updateMessage: `\nPlease run ${chalk.magenta('npm i @ris/cli@latest --save-dev')} to install.`,
 }).then(() => {
   main();
 });
