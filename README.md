@@ -58,7 +58,7 @@ Add page and component quickly. You can highly customize the template of page an
 Build the application in production mode. It will default build to the `build` folder.
 
 ## Examples
-Built-in empty and standard application. You can use [create-ris](https://github.com/risjs/create-ris) to create a applicatioin to experience.
+Built-in [empty](https://github.com/risjs/create-ris/tree/master/template/simple) and [standard](https://github.com/risjs/create-ris/tree/master/template/standard) application. You can use [create-ris](https://github.com/risjs/create-ris) to create a applicatioin to experience.
 
 More:
 
