@@ -10,7 +10,7 @@ const risrc = getRisrc();
 const HOST = process.env.HOST || '0.0.0.0';
 const DEFAULT_PORT = 3000;
 
-// hide webpack deprecation warning
+// Hide webpack deprecation warning
 process.noDeprecation = true;
 
 function bugfree() { /*
@@ -45,6 +45,7 @@ function onCompileDone(urls) {
       `  - ${chalk.bold('On Your Network:')}  ${urls.lanUrlForTerminal}`,
     ].join('\n'));
     console.log();
+    // Add bugfree
     if (risrc.bugfree) {
       console.log(bugfree.toString().split('\n').slice(1, -1).join('\n'));
     }
@@ -61,15 +62,15 @@ module.exports = async (options) => {
     serverConfig,
   } = options;
 
-  // merge config(default、user、client)
+  // Merge config(default、user、client)
   const devServerConfig = merge(serverDefaultConfig, serverConfig, {
     publicPath: webpackConfig.output.publicPath || serverConfig.publicPath,
   });
 
-  // choose an available port
+  // Choose an available port
   const port = await choosePort(HOST, devServerConfig.port || DEFAULT_PORT);
   if (port == null) {
-    // we have not found a port.
+    // We have not found a port.
     return;
   }
 
@@ -82,7 +83,7 @@ module.exports = async (options) => {
     onCompileInvalid,
   });
 
-  // create a dev server
+  // Create a dev server
   const devServer = new WebpackDevServer(compiler, devServerConfig);
 
   devServer.listen(port, HOST, (err) => {

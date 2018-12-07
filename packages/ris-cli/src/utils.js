@@ -46,4 +46,3 @@ module.exports = {
   strSimilarity2Number,
   strSimilarity2Percent,
 };
-

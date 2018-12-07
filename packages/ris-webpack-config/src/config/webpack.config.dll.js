@@ -5,10 +5,11 @@ const { getRisrc } = require('@ris/utils');
 
 const root = process.cwd();
 const risrc = getRisrc();
-const dllPlugin = require('./dll/config').dllPlugin;
+const { dllPlugin } = require('./dll/config');
 
 let dependencies;
 try {
+  // eslint-disable-next-line
   dependencies = require(join(root, 'package.json')).dependencies;
 } catch (e) {
   dependencies = {};

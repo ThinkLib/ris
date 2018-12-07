@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const path = require('path');
 
-const execSync = require('child_process').execSync;
+const { execSync } = require('child_process');
 
 const execOptions = {
   encoding: 'utf8',
@@ -35,7 +35,7 @@ function getPackageNameInDirectory(directory) {
 function getProcessCommand(processId, processDirectory) {
   let command = execSync(
     `ps -o command -p ${processId} | sed -n 2p`,
-    execOptions
+    execOptions,
   );
 
   command = command.replace(/\n$/, '');
@@ -50,7 +50,7 @@ function getProcessCommand(processId, processDirectory) {
 function getDirectoryOfProcessById(processId) {
   return execSync(
     `lsof -p ${processId} | awk '$4=="cwd" {for (i=9; i<=NF; i++) printf "%s ", $i}'`,
-    execOptions
+    execOptions,
   ).trim();
 }
 
@@ -60,10 +60,10 @@ function getProcessForPort(port) {
     const directory = getDirectoryOfProcessById(processId);
     const command = getProcessCommand(processId, directory);
     return (
-      chalk.cyan(command) +
-      chalk.grey(` (pid ${processId})\n`) +
-      chalk.blue('  in ') +
-      chalk.cyan(directory)
+      chalk.cyan(command)
+      + chalk.grey(` (pid ${processId})\n`)
+      + chalk.blue('  in ')
+      + chalk.cyan(directory)
     );
   } catch (e) {
     return null;

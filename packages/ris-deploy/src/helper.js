@@ -147,9 +147,9 @@ const getLatestVersion = () => _getRemoteVersions().then((versions) => {
 });
 
 const checkRemoteMaster = (remote = 'origin') => {
-  const cmd = `git fetch ${remote} master -q` +
-    ' && ' +
-    `git rev-list --left-right HEAD...${remote}/master --count`;
+  const cmd = `git fetch ${remote} master -q`
+    + ' && '
+    + `git rev-list --left-right HEAD...${remote}/master --count`;
   return new Promise((resolve, reject) => {
     const spin = new Spin('Checking merge status');
     exec(cmd, { cwd: process.cwd(), timeout: 5000 }, (err, stdout) => {

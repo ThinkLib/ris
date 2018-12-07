@@ -10,7 +10,7 @@ const exists = fs.existsSync;
 const writeFile = fs.writeFileSync;
 
 const risrc = getRisrc();
-const dllFinalConfig = defaults(risrc.dllPlugin, dllConfig.dllPlugin.defaults);
+const dllFinalConfig = defaults(risrc.dllPlugin || {}, dllConfig.dllPlugin.defaults);
 const outputPath = path.join(process.cwd(), dllFinalConfig.path);
 const dllManifestPath = path.join(outputPath, 'package.json');
 // check package.json is exist
@@ -19,6 +19,28 @@ try {
   pkg = require(path.join(process.cwd(), 'package.json'));
 } catch (e) {
   pkg = {};
+}
+
+function getDllDependenciesInfo(entry) {
+  const result = [];
+  Object.keys(entry).forEach((key) => {
+    const items = entry[key];
+    for (let i = 0; i < items.length; i += 1) {
+      const itemName = items[i];
+      const pkgDeps = pkg.dependencies;
+      let version;
+      Object.keys(pkgDeps).forEach((depName) => {
+        if (depName === itemName) {
+          version = pkgDeps[depName];
+        }
+      });
+      result.push({
+        name: itemName,
+        version,
+      });
+    }
+  });
+  return result;
 }
 
 function checkIncrement() {
@@ -40,29 +62,6 @@ function checkIncrement() {
     });
     if (!flag) {
       result = true;
-    }
-  });
-  return result;
-}
-
-function getDllDependenciesInfo(entry) {
-  let dependencies = [];
-  const result = [];
-  Object.keys(entry).forEach((key) => {
-    const items = entry[key];
-    for (let i = 0; i < items.length; i += 1) {
-      const itemName = items[i];
-      const pkgDeps = pkg.dependencies;
-      let version;
-      Object.keys(pkgDeps).forEach((depName) => {
-        if (depName === itemName) {
-          version = pkgDeps[depName];
-        }
-      });
-      result.push({
-        name: itemName,
-        version,
-      });
     }
   });
   return result;
@@ -96,7 +95,7 @@ async function buildDll() {
         version: pkg.version,
         dlls: getDllDependenciesInfo(webpackConfigDll.entry),
       }), null, 2),
-      'utf8'
+      'utf8',
     );
   }
 
@@ -105,13 +104,14 @@ async function buildDll() {
     compiler.apply(new webpack.ProgressPlugin());
     compiler.run((err, stats) => {
       if (err) {
-        return clean(outputPath).then(() => {
+        clean(outputPath).then(() => {
           console.log(chalk.bold.red('# Failed to compile.'));
           console.log();
           console.log(err.message || err);
           console.log();
           process.exit(1);
         });
+        return;
       }
       console.log(`\n${stats.toString({
         colors: true,
@@ -122,14 +122,16 @@ async function buildDll() {
         modules: false,
         children: false,
       })}`);
-      // Catch the error that some modules not install correctly, the way is not the best, but no other way
+      // Catch the error that some modules not install correctly,
+      // the way is not the best, but no other way
       if (stats.toString().indexOf('ERROR in dll') !== -1 && stats.toString().indexOf('Module not found') !== -1) {
-        return clean(outputPath).then(() => {
+        clean(outputPath).then(() => {
           console.log();
           console.log(chalk.bold.red('# Failed to compile dll, maybe some modules not install correctly.'));
           console.log();
           process.exit(1);
         });
+        return;
       }
       console.log();
       console.log('# Building success, now building app...');
@@ -149,7 +151,7 @@ module.exports = async () => {
       || (pkg.dependencies && Object.keys(pkg.dependencies).length === 0)) {
     return false;
   }
-  const dllPlugin = risrc.dllPlugin;
+  const { dllPlugin = {} } = risrc;
   const dllPath = path.resolve(process.cwd(), dllPlugin.path || 'node_modules/ris-react-boilerplate-dlls');
   /**
    * If DLLs aren't explicitly defined, we assume all production dependencies listed in package.json
@@ -185,7 +187,7 @@ module.exports = async () => {
     // not exists some manifestPath
     await buildDll();
     return true;
-  } else if (isExists && checkIncrement()) {
+  } if (isExists && checkIncrement()) {
     // exists at least one manifestPath
     console.log('# There is some changes of the dll, begin to rebuild.');
     await buildDll();
