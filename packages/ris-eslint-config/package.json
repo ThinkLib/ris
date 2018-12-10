@@ -1,6 +1,6 @@
 {
-  "name": "@ris/eslint-config",
-  "version": "0.0.7",
+  "name": "@ali/ris-eslint-config",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris eslint config.",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "eslint-config-airbnb": "^16.1.0",

@@ -1,6 +1,6 @@
 {
-  "name": "@ris/mock",
-  "version": "0.0.7",
+  "name": "@ali/ris-mock",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris mock middleware.",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "chalk": "^2.4.1"

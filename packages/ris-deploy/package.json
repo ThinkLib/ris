@@ -1,6 +1,6 @@
 {
-  "name": "@ris/deploy",
-  "version": "0.0.9",
+  "name": "@ali/ris-deploy",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris deploy command.",
   "license": "MIT",
@@ -16,13 +16,13 @@
     "type": "git",
     "url": ""
   },
-  "author": "int64ago@gmail.com",
+  "author": "beyondxgb@gmail.com",
   "bugs": {
     "url": ""
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "chalk": "^2.1.0",

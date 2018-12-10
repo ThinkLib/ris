@@ -1,6 +1,6 @@
 {
   "lerna": "2.9.0",
-  "npmClient": "npm",
+  "npmClient": "tnpm",
   "command": {
     "bootstrap": {
       "npmClientArgs": [
@@ -11,5 +11,5 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.0.9"
+  "version": "0.0.10"
 }

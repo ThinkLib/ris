@@ -1,6 +1,6 @@
 {
-  "name": "@ris/babel-preset-react",
-  "version": "0.0.7",
+  "name": "@ali/ris-babel-preset-react",
+  "version": "0.0.10",
   "main": "index.js",
   "description": "ris babel config.",
   "license": "MIT",
@@ -23,7 +23,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "@babel/core": "^7.0.0",

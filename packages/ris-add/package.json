@@ -1,6 +1,6 @@
 {
-  "name": "@ris/add",
-  "version": "0.0.7",
+  "name": "@ali/ris-add",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris add command.",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "cross-spawn": "^6.0.5",

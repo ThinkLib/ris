@@ -1,6 +1,6 @@
 {
-  "name": "@ris/cli",
-  "version": "0.0.9",
+  "name": "@ali/ris-cli",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris command line.",
   "license": "MIT",
@@ -24,7 +24,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "@ris/add": "^0.0.7",

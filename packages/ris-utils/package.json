@@ -1,6 +1,6 @@
 {
-  "name": "@ris/utils",
-  "version": "0.0.7",
+  "name": "@ali/ris-utils",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris utils.",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "chalk": "^1.1.3",

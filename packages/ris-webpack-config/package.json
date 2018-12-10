@@ -1,6 +1,6 @@
 {
-  "name": "@ris/webpack-config",
-  "version": "0.0.9",
+  "name": "@ali/ris-webpack-config",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris webpack config.",
   "license": "MIT",
@@ -23,7 +23,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "@babel/core": "^7.2.0",

@@ -1,6 +1,6 @@
 {
-  "name": "@ris/dev-server",
-  "version": "0.0.9",
+  "name": "@ali/ris-dev-server",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris dev server.",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "homepage": "",
   "publishConfig": {
-    "access": "public"
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "dependencies": {
     "@ris/utils": "^0.0.7",
