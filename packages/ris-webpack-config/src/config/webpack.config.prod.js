@@ -53,7 +53,7 @@ module.exports = merge({
     filename: '[name].js',
     chunkFilename: '[name].[chunkhash:8].chunk.js',
     path: constant.appBuild,
-    publicPath: cdnPath || '',
+    publicPath: cdnPath || '/',
   },
   plugins,
   devtool: shouldUseSourceMap ? 'source-map' : false,

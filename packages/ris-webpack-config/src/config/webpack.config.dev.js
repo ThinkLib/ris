@@ -28,7 +28,7 @@ module.exports = merge({
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
     path: constant.appBuild,
-    publicPath: '',
+    publicPath: '/',
   },
   plugins,
   // Emit a source map for easier debugging
