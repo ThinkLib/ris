@@ -1,6 +1,6 @@
 {
   "name": "@ris/dev",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "src/index.js",
   "description": "ris dev command.",
   "license": "MIT",
@@ -25,9 +25,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@ris/dev-server": "^0.0.9",
+    "@ris/dev-server": "^0.0.10",
     "@ris/utils": "^0.0.7",
-    "@ris/webpack-config": "^0.0.9",
+    "@ris/webpack-config": "^0.0.10",
     "chalk": "^2.3.2",
     "del": "^3.0.0",
     "fs-extra": "^5.0.0",
