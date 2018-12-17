@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@ris/cli.svg?colorB=007ec6&style=flat-square)](https://www.npmjs.com/package/@ris/cli)
 [![npm downloads](https://img.shields.io/npm/dm/@ris/cli.svg?style=flat-square)](https://www.npmjs.com/package/@ris/cli)
 
-React Integrated Solution. Inspired by [create-react-app](https://github.com/facebook/create-react-app).
+React Integrated Solution. 
 
 ## Quick Start
 
@@ -67,6 +67,9 @@ More:
 
 ## Documentation
 Learn more about the details and instructions, you can read about [UserGuide](https://github.com/risjs/ris/blob/master/docs/guide.md).
+
+## Thanks
+To create this tools, something is referenced [create-react-app](https://github.com/facebook/create-react-app) and [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). Thanks a lot for many good ideas.
 
 ## LICENSE
 MIT
