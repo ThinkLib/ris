@@ -14,7 +14,7 @@ program
   .version(pkg.version, '-v, --version')
   .usage('<command> [options]');
 
-process.env = { ...process.env, ...env };
+process.env = { ...env, ...process.env };
 
 const argvs = process.argv;
 

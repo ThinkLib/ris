@@ -1,9 +1,9 @@
 # @ris/mock
 
-A light-weight mock tools for webpack server or standard express server.
-
 [![npm version](https://img.shields.io/npm/v/@ris/mock.svg?colorB=007ec6&style=flat-square)](https://www.npmjs.com/package/@ris/mock)
 [![npm downloads](https://img.shields.io/npm/dm/@ris/mock.svg?style=flat-square)](https://www.npmjs.com/package/@ris/mock)
+
+A light-weight mock tools for webpack server or standard express server.
 
 ## Getting Started
 
@@ -58,7 +58,7 @@ module.exports = {
 };
 ```
 
-* `key`: it will like \`[**method**] [**apiPath**]\`
+* `key`: it will like [**method**] [**api**]
 * `value`: it can be **string**/**object**/**function**/**file**
   * **string/object**: 
 
@@ -71,7 +71,7 @@ module.exports = {
   ```
   * **function**:
 
-  You can constrol the response data flexibility through `req/res`.
+  You can control the response data flexibility through `req/res`.
   ```js
   module.exports = {
     'GET /api/user':  (req, res) => { res.end('beyondxgb'); }
@@ -80,12 +80,12 @@ module.exports = {
 
   * **file**:
 
-  You can split the response data to file, only support `.js` and '.json'.
+  You can split the response data to file, only support `.js` and `.json`.
   
   ```js
   module.exports = {
-    'GET /api/user':  `user/info.json'
-    'GET /api/user/create':  `user/create.js'
+    'GET /api/user':  'user/info.json'
+    'GET /api/user/create':  'user/create.js'
   }
   ```
 

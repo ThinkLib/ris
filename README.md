@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@ris/cli.svg?colorB=007ec6&style=flat-square)](https://www.npmjs.com/package/@ris/cli)
 [![npm downloads](https://img.shields.io/npm/dm/@ris/cli.svg?style=flat-square)](https://www.npmjs.com/package/@ris/cli)
 
-React Integrated Solution. 
+RIS, React Integrated Solution. RIS's target is to provide a basic build solution that high scalability. Through this toolset we focus on output some best practice about react.
 
 ## Quick Start
 
