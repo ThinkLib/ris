@@ -52,7 +52,7 @@ Inside the application, you can run following scripts:
 Startup the application in development mode. You can open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run add`
-Add page and component quickly. You can highly customize the template of page and component in the 'tools/generators'.
+Add page and component quickly. You can highly customize the template of page and component in the `tools/generators`.
 
 ### `npm run build`
 Build the application in production mode. It will default build to the `build` folder.
