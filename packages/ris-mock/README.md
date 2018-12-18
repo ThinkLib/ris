@@ -2,6 +2,9 @@
 
 A light-weight mock tools for webpack server or standard express server.
 
+[![npm version](https://img.shields.io/npm/v/@ris/mock.svg?colorB=007ec6&style=flat-square)](https://www.npmjs.com/package/@ris/mock)
+[![npm downloads](https://img.shields.io/npm/dm/@ris/mock.svg?style=flat-square)](https://www.npmjs.com/package/@ris/mock)
+
 ## Getting Started
 
 ```
@@ -47,7 +50,7 @@ In the above rules, when browser send a request `GET /api/user`, then the server
 
 ## Config
 
-`mock/rules.js` return a plain object. In the object, it is a key/value format.
+`mock/rules.js` return a plain object. In the object, it is a `key/value` format.
 
 ```js
 module.exports = {
@@ -55,7 +58,7 @@ module.exports = {
 };
 ```
 
-* `key`: '[method] [api path]'
+* `key`: it will like \`[**method**] [**apiPath**]\`
 * `value`: it can be **string**/**object**/**function**/**file**
   * **string/object**: 
 
@@ -69,7 +72,7 @@ module.exports = {
   * **function**:
 
   You can constrol the response data flexibility through `req/res`.
-  ```
+  ```js
   module.exports = {
     'GET /api/user':  (req, res) => { res.end('beyondxgb'); }
   }
@@ -79,13 +82,29 @@ module.exports = {
 
   You can split the response data to file, only support `.js` and '.json'.
   
-  ```
+  ```js
   module.exports = {
     'GET /api/user':  `user/info.json'
+    'GET /api/user/create':  `user/create.js'
   }
   ```
 
-  Then you should create file `mock/user/info.json`
+  Then you should create file `mock/user/info.json` and `mock/user/create.js`:
+
+  `mock/user/info.json`:
+  ```json
+  {
+    "name": "beyondxgb"
+  }
+  ```
+
+  `mock/user/create.js`:
+  ```js
+  module.exports = (req, res) => {
+    res.end('ok');
+  };
+  ```
+
 
 
 
