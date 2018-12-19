@@ -92,7 +92,7 @@ Of course, you should install `html-loader` to the dependencies.
 npm install html-loader --save-dev
 ```
 
-What if the default configuration doesn't fit for me？You can cover it directly. It Will give priority to the use of your loader.
+What if the default configuration doesn't fit for me？You can cover it directly. It will give priority to the use of your loader.
 
 For example, the default loader option for `image` is `/\.(bmp|gif|png|jpe?g)$/i：url-loader`. But you want to use another loader. You can in configure it in rules option.
 
