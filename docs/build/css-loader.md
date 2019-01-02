@@ -21,5 +21,71 @@ module.exports = {
   postCSSLoaderOptions: {},
 };
 ```
+### Add namespace
 
-For example, 
+For example, we want to add `postcss-selector-namespace` plugin in postcss-loader, you can do like this:
+
+```js
+const PostcssSelectorNamespace = require('postcss-selector-namespace');
+
+module.exports = {
+  dll: true,
+  dllPlugin: {
+    path: 'node_modules/ris-react-boilerplate-dlls',
+    exclude: [],
+    include: [],
+    dlls: null,
+  },
+  postCSSLoaderOptions: {
+    plugins: [
+      PostcssSelectorNamespace({ namespace: '.ris-app' })
+    ],
+  },
+};
+```
+
+Of course, you should install `postcss-selector-namespace` to the dependencies.
+
+### Add antd theme
+
+If you use `ant-design`, sometimes you want to customize the theme of the components. You can configure the `lessLoaderOptions`.
+
+```js
+const theme = {
+  'primary-color': 'red',
+};
+
+module.exports = {
+  dll: true,
+  dllPlugin: {
+    path: 'node_modules/ris-react-boilerplate-dlls',
+    exclude: [],
+    include: [],
+    dlls: null,
+  },
+  lessLoaderOptions: {
+    modifyVars: theme,
+    javascriptEnabled: true,
+  },
+};
+```
+
+And remember that you should check whether if it is load less style.
+
+`.babelrc`
+
+```json
+{
+  "presets": ["@ris/babel-preset-react"],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      },
+      "antd"
+    ]
+  ]
+}
+```

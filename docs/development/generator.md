@@ -35,7 +35,7 @@ Next follow the instructions to select as you need.
 
 Finallay generator will generate files according your selects.
 
-![kk](https://gw.alicdn.com/tfs/TB1m4fqw4naK1RjSZFtXXbC2VXa-1490-856.jpg)
+![kk](https://gw.alicdn.com/tfs/TB17Ee_wVzqK1RjSZFCXXbbxVXa-1490-856.jpg)
 
 ## Customization
 
