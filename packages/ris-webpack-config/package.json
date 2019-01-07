@@ -1,6 +1,6 @@
 {
   "name": "@ris/webpack-config",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "src/index.js",
   "description": "ris webpack config.",
   "license": "MIT",
@@ -28,7 +28,7 @@
   "dependencies": {
     "@babel/core": "^7.2.0",
     "@babel/runtime": "^7.2.0",
-    "@ris/utils": "^0.0.7",
+    "@ris/utils": "^0.0.11",
     "add-asset-html-webpack-plugin": "^2.1.3",
     "autoprefixer": "^8.1.0",
     "babel-loader": "^8.0.0",
