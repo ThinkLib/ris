@@ -8,7 +8,8 @@ module.exports = () => {
     try {
       return require(filePath);
     } catch (e) {
-      return defaultRc;
+      console.log(e);
+      process.exit(0);
     }
   }
   return defaultRc;
