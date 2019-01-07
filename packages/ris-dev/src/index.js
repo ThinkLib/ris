@@ -12,6 +12,11 @@ const prepareDll = require('./util/prepareDll');
 const risrc = getRisrc();
 const { getDllPlugins, webpackConfigDev } = risWebpackConfig;
 
+// Hide webpack deprecation warning
+process.noDeprecation = true;
+// Set node env
+process.env.NODE_ENV = 'development';
+
 module.exports = {
   async run() {
     // prepare dll file

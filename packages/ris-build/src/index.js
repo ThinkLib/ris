@@ -8,6 +8,8 @@ const {
 
 // hide webpack deprecation warning
 process.noDeprecation = true;
+// Set node env
+process.env.NODE_ENV = 'production';
 
 function build(webpackConfig, options) {
   let compiler;
