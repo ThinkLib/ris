@@ -89,3 +89,56 @@ And remember that you should check whether if it is load less style.
   ]
 }
 ```
+
+### Advanced
+If you want to highly customize the css loader, you can **cover** the css loader in the webpack config.
+
+For example, we cover the `sass loader` config.
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+const resolveApp = relativePath => path.join(process.cwd(), relativePath);
+
+const defaultPostCssLoaderOptions = {
+  // Necessary for external CSS imports to work
+  ident: 'postcss',
+  plugins: () => [
+    require('postcss-flexbugs-fixes'),
+    require('autoprefixer')({
+      flexbox: 'no-2009',
+    }),
+  ],
+};
+
+module.exports = {
+  entry: resolveApp('src/index.js'),
+  output: {
+    filename: '[name].[hash:8].js',
+    chunkFilename: 'chunk[id].[chunkhash:8].js',
+  },
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: [
+        process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: defaultPostCssLoaderOptions,
+        },
+        'sass-loader',
+        {
+          loader: 'sass-resources-loader',
+          options: {
+            resources: [
+              resolveApp('src/assets/styles/mixin.scss'),
+              resolveApp('src/assets/styles/variables.scss'),
+            ],
+          },
+        },
+      ],
+    }],
+  },
+};
+```

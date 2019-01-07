@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@ris/add": "^0.0.7",
+    "@ris/analyze": "^0.0.1",
     "@ris/build": "^0.0.10",
     "@ris/deploy": "^0.0.10",
     "@ris/dev": "^0.0.10",

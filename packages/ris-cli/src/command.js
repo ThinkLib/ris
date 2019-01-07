@@ -31,6 +31,11 @@ module.exports = [
     description: 'Deploy project',
   },
   {
+    name: 'analyze',
+    command: 'analyze',
+    description: 'Analyze project build permormance',
+  },
+  {
     name: '',
     command: '',
     description: '',
