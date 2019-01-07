@@ -1,5 +1,3 @@
 # Styles
 
 ## Adding a Stylesheet
-
-##

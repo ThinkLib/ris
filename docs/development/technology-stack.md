@@ -1,3 +1,9 @@
 # Technology Stack
 
-Coming soon...
+## Core
+React
+React Router
+XRedux
+React Redux
+React Loadable
+Connected React Router
