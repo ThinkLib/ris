@@ -33,8 +33,5 @@
 * [Committing Hooks](https://github.com/risjs/ris/blob/master/docs/quality/committing-hooks.md)
 * [Running Tests](https://github.com/risjs/ris/blob/master/docs/quality/running-tests.md)
 
-## Deployment
-* Deployment
-
 ## Support
-* Troubleshooting
+* [Troubleshooting](https://github.com/risjs/ris/blob/master/docs/support/troubleshooting.md)

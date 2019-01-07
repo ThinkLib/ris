@@ -95,6 +95,8 @@ If you want to highly customize the css loader, you can **cover** the css loader
 
 For example, we cover the `sass loader` config.
 
+`tools/webpack/base.js`:
+
 ```js
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
