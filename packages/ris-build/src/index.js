@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { webpack, webpackConfigProd } = require('@ris/webpack-config');
 const {
-  mergeWebpackConfig, clean, getUserWebpackConfig,
+  mergeWebpackConfig, clean, getUserWebpackConfig, merge,
 } = require('@ris/utils');
 
 // hide webpack deprecation warning
@@ -48,7 +48,7 @@ module.exports = {
     const userWebpackConfig = getUserWebpackConfig();
     // merge config
     const webpackConfig = mergeWebpackConfig(
-      mergeWebpackConfig(userWebpackConfig.prod, userWebpackConfig.base),
+      merge(userWebpackConfig.base, userWebpackConfig.prod),
       webpackConfigProd,
     );
     try {

@@ -5,6 +5,7 @@ const {
   getUserWebpackConfig,
   getUserServerConfig,
   mergeWebpackConfig,
+  merge,
 } = require('@ris/utils');
 const prepareDll = require('./util/prepareDll');
 
@@ -27,7 +28,7 @@ module.exports = {
     const userServerConfig = getUserServerConfig();
     // merge config
     const webpackConfig = mergeWebpackConfig(
-      mergeWebpackConfig(userWebpackConfig.dev, userWebpackConfig.base),
+      merge(userWebpackConfig.base, userWebpackConfig.dev),
       webpackConfigDev,
     );
     if (risrc.dll) {
