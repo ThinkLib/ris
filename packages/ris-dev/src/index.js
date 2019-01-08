@@ -8,6 +8,7 @@ const {
   merge,
 } = require('@ris/utils');
 const prepareDll = require('./util/prepareDll');
+const bugfree = require('./util/bugfree');
 
 const risrc = getRisrc();
 const { getDllPlugins, webpackConfigDev } = risWebpackConfig;
@@ -45,6 +46,13 @@ module.exports = {
     risDevServer({
       webpackConfig,
       serverConfig: userServerConfig,
+      onCompileDone: () => {
+        console.log();
+        // Add bugfree
+        if (risrc.bugfree) {
+          console.log(bugfree.toString().split('\n').slice(1, -1).join('\n'));
+        }
+      },
     });
   },
 };

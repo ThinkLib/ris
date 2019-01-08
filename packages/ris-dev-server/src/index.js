@@ -1,42 +1,18 @@
 const WebpackDevServer = require('webpack-dev-server');
 const chalk = require('chalk');
-const { merge, getRisrc } = require('@ris/utils');
+const { merge } = require('@ris/utils');
 const createCompiler = require('./util/createCompiler');
 const choosePort = require('./util/choosePort');
 const prepareUrls = require('./util/prepareUrls');
 const serverDefaultConfig = require('./config');
 
-const risrc = getRisrc();
 const HOST = process.env.HOST || '0.0.0.0';
 const DEFAULT_PORT = 3000;
 
 // Hide webpack deprecation warning
 process.noDeprecation = true;
 
-function bugfree() { /*
-                                 _oo8oo_
-                                o8888888o
-                                88" . "88
-                                (| -_- |)
-                                0\  =  /0
-                              ___/'==='\___
-                            .' \\|     |// '.
-                           / \\|||  :  |||// \
-                          / _||||| -:- |||||_ \
-                         |   | \\\  -  /// |   |
-                         | \_|  ''\---/''  |_/ |
-                         \  .-\__  '-'  __/-.  /
-                       ___'. .'  /--.--\  '. .'___
-                    ."" '<  '.___\_<|>_/___.'  >' "".
-                   | | :  `- \`.:`\ _ /`:.`/ -`  : | |
-                   \  \ `-.   \_ __\ /__ _/   .-` /  /
-               =====`-.____`.___ \_____/ ___.`____.-`=====
-                                 `=---=`
-              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                         佛祖保佑         永无BUG
-*/ }
-
-function onCompileDone(urls) {
+function onCompileDone(urls, options) {
   setTimeout(() => {
     console.log();
     console.log([
@@ -44,16 +20,17 @@ function onCompileDone(urls) {
       `  - ${chalk.bold('Local:')}            ${urls.localUrlForTerminal}`,
       `  - ${chalk.bold('On Your Network:')}  ${urls.lanUrlForTerminal}`,
     ].join('\n'));
-    console.log();
-    // Add bugfree
-    if (risrc.bugfree) {
-      console.log(bugfree.toString().split('\n').slice(1, -1).join('\n'));
+    if (options.onCompileDone) {
+      options.onCompileDone();
     }
   }, 0);
 }
 
-function onCompileInvalid() {
+function onCompileInvalid(options) {
   // onCompileInvalid
+  if (options.onCompileInvalid) {
+    options.onCompileInvalid();
+  }
 }
 
 module.exports = async (options) => {
@@ -79,8 +56,8 @@ module.exports = async (options) => {
 
   const compiler = createCompiler({
     webpackConfig,
-    onCompileDone: onCompileDone.bind(this, urls),
-    onCompileInvalid,
+    onCompileDone: onCompileDone.bind(this, urls, options),
+    onCompileInvalid: onCompileInvalid.bind(this, options),
   });
 
   // Create a dev server

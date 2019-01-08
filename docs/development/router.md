@@ -43,7 +43,54 @@ There are many ways to navigate between pages.
 
 ### Link
 
-### with-router
+```js
+import Link from "react-router-dom";
+
+export default () => (
+   <Link to="/index">Index</Link>
+);
+```
+
+### withRouter
+You can get access to the `history` object's properties and the closest <Route>'s match via the `withRouter` higher-order component. `withRouter` will pass updated match, location, and history props to the wrapped component whenever it renders.
+
+```js
+import React from "react";
+import { withRouter } from "react-router";
+
+class Demo extends React.Component {
+  render() {
+    const { match, location, history } = this.props;
+
+    return <div onClick={() => history.push('/index')}>index</div>;
+  }
+}
+export default withRouter(Demo);
+```
 
 ### dispatch
+Application have deep integration of redux. So you can use `dispatch` to navigate pages in reducers.
+
+```js
+import xredux from 'xredux';
+import { push } from 'connected-react-router';
+
+const { actions } = xredux;
+
+xredux.model({
+  namespace: 'app',
+  initialState: {
+  },
+  reducers: {
+
+  },
+  effects: {
+    async register(action, dispatch) {
+      ...submit form
+      // redirect to index
+      dispatch(push('/'));
+    },
+  },
+});
+```
 
