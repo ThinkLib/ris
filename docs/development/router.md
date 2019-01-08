@@ -85,8 +85,8 @@ xredux.model({
 
   },
   effects: {
-    async register(action, dispatch) {
-      ...submit form
+    async submitForm(action, dispatch) {
+      ...do submit
       // redirect to index
       dispatch(push('/'));
     },

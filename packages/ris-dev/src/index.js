@@ -20,7 +20,7 @@ process.env.NODE_ENV = 'development';
 
 module.exports = {
   async run() {
-    // prepare dll file
+    // Prepare dll file
     if (risrc.dll) {
       try {
         await prepareDll();
@@ -29,20 +29,20 @@ module.exports = {
         process.exit(1);
       }
     }
-    // user config
+    // User config
     const userWebpackConfig = getUserWebpackConfig();
     const userServerConfig = getUserServerConfig();
-    // merge config
+    // Merge config
     const webpackConfig = mergeWebpackConfig(
       merge(userWebpackConfig.base, userWebpackConfig.dev),
       webpackConfigDev,
     );
     if (risrc.dll) {
-      // add dllPlugins to improve the building speed
+      // Add dllPlugins to improve the building speed
       const dllPlugins = getDllPlugins();
       webpackConfig.plugins = webpackConfig.plugins.concat(dllPlugins);
     }
-    // start server
+    // Start server
     risDevServer({
       webpackConfig,
       serverConfig: userServerConfig,

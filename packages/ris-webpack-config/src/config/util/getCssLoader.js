@@ -4,9 +4,6 @@ const { getRisrc } = require('@ris/utils');
 
 const risrc = getRisrc();
 
-// Options for PostCSS as we reference these options twice
-// Adds vendor prefixing based on your specified browser support in
-// package.json
 const defaultPostCssLoaderOptions = {
   // Necessary for external CSS imports to work
   ident: 'postcss',
@@ -24,10 +21,6 @@ const defaultStyleLoaderOptions = {
 const defaultCssLoaderOptions = {
   sourceMap: false,
 };
-// when import antd,
-// it will show error "Inline JavaScript is not enabled. Is it set in your options?"
-// so add this options
-// https://stackoverflow.com/questions/46729091/enable-inline-javascript-in-less
 const defaultLessLoaderOptions = {
   javascriptEnabled: true,
 };
@@ -92,12 +85,6 @@ const postcssLoader = {
 };
 
 module.exports = (cssType, env) => {
-  // "postcss" loader applies autoprefixer to our CSS.
-  // "css" loader resolves paths in CSS and adds assets as dependencies.
-  // "style" loader turns CSS into JS modules that inject <style> tags.
-  // In production, we use a plugin to extract that CSS to a file, but
-  // in development "style" loader enables hot editing of CSS.
-  // By default we support CSS Modules with the extension .module.css
   if (cssType === 'css-loader') {
     return [
       env === 'production' ? MiniCssExtractPlugin.loader : styleloader,
@@ -110,8 +97,6 @@ module.exports = (cssType, env) => {
       loader: require.resolve(cssType),
       // when import antd,
       // it will show error "Inline JavaScript is not enabled. Is it set in your options?"
-      // so add this options
-      // https://stackoverflow.com/questions/46729091/enable-inline-javascript-in-less
       options: getLoaderOptions(cssType),
     },
   ];

@@ -50,14 +50,6 @@ There are two ways to confirgure `publicPath`.
 First, you can set it in `tools/webpack/prod.js`:
 
 ```js
-/**
- * prod.js
- *
- * Webpack development config that will be merged with base.js
- * Reference: https://webpack.js.org/configuration/
- *
- */
-
 module.exports = {
   output: {
     publicPath: 'https://xxx.xxx.xxx',

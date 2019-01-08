@@ -13,7 +13,7 @@ const risrc = getRisrc();
 const dllFinalConfig = defaults(risrc.dllPlugin || {}, dllConfig.dllPlugin.defaults);
 const outputPath = path.join(process.cwd(), dllFinalConfig.path);
 const dllManifestPath = path.join(outputPath, 'package.json');
-// check package.json is exist
+
 let pkg;
 try {
   pkg = require(path.join(process.cwd(), 'package.json'));
@@ -55,7 +55,7 @@ function checkIncrement() {
   dlls.forEach((item1) => {
     let flag = false;
     oldDlls.forEach((item2) => {
-      // compare dependent's name and version
+      // Compare dependent's name and version
       if (item1.name === item2.name && item1.version === item2.version) {
         flag = true;
       }
@@ -73,17 +73,11 @@ async function buildDll() {
   } catch (e) {
     console.log(e);
   }
-  /**
-   * I use node_modules/ris-react-boilerplate-dlls by default just because
-   * it isn't going to be version controlled and babel wont try to parse it.
-   */
+  
   fse.ensureDirSync(outputPath);
 
   console.log('# Building the Webpack DLL...');
 
-  /**
-   * Create a manifest so npm install doesn't warn us
-   */
   if (!exists(dllManifestPath)) {
     writeFile(
       dllManifestPath,
@@ -153,10 +147,7 @@ module.exports = async () => {
   }
   const { dllPlugin = {} } = risrc;
   const dllPath = path.resolve(process.cwd(), dllPlugin.path || 'node_modules/ris-react-boilerplate-dlls');
-  /**
-   * If DLLs aren't explicitly defined, we assume all production dependencies listed in package.json
-   * Reminder: You need to exclude any server side dependencies by listing them in dllConfig.exclude
-   */
+
   if (!dllPlugin.dlls) {
     const manifestPath = path.resolve(dllPath, 'risReactBoilerplateDeps.json');
     const isExists = fs.existsSync(manifestPath);
@@ -184,11 +175,11 @@ module.exports = async () => {
     }
   });
   if (ifBuild) {
-    // not exists some manifestPath
+    // Not exists some manifestPath
     await buildDll();
     return true;
   } if (isExists && checkIncrement()) {
-    // exists at least one manifestPath
+    // Exists at least one manifestPath
     console.log('# There is some changes of the dll, begin to rebuild.');
     await buildDll();
     return true;

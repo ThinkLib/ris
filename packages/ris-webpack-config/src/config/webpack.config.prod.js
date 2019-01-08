@@ -2,10 +2,13 @@ const fs = require('fs');
 const { merge } = require('@ris/utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { getRisrc } = require('@ris/utils');
 const webpackBaseConfig = require('./webpack.config.base');
 const constant = require('./constant');
+
+const risrc = getRisrc();
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -13,10 +16,10 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const cdnPath = process.env.CDN_PATH;
 
 const plugins = [
-  new MiniCssExtractPlugin({
+  new MiniCssExtractPlugin(Object.assign({
     filename: '[name].css',
     chunkFilename: '[name].[contenthash:8].chunk.css',
-  }),
+  }, risrc.cssExtractPluginOptions || {})),
 ];
 
 if (fs.existsSync(constant.appEntryHtml)) {
@@ -42,9 +45,7 @@ module.exports = merge({
   mode: 'production',
   // Don't attempt to continue if there are any errors.
   bail: true,
-  // In production, we skip all hot-reloading stuff
   entry: constant.appEntry,
-  // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
     filename: '[name].js',
     chunkFilename: '[name].[chunkhash:8].chunk.js',
@@ -55,10 +56,22 @@ module.exports = merge({
   devtool: shouldUseSourceMap ? 'source-map' : false,
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
+      new TerserPlugin({
+        terserOptions: {
+          warnings: false,
+          compress: {
+            comparisons: false,
+          },
+          parse: {},
+          mangle: true,
+          output: {
+            comments: false,
+            ascii_only: true,
+          },
+        },
         parallel: true,
-        sourceMap: shouldUseSourceMap,
+        cache: true,
+        sourceMap: true,
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
