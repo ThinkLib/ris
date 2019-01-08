@@ -1,6 +1,6 @@
 {
   "name": "@ris/cli",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "main": "src/index.js",
   "description": "ris command line.",
   "license": "MIT",
@@ -27,12 +27,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@ris/add": "^0.0.7",
-    "@ris/analyze": "^0.0.11",
-    "@ris/build": "^0.0.12",
-    "@ris/deploy": "^0.0.10",
-    "@ris/dev": "^0.0.12",
-    "@ris/init": "^0.0.7",
+    "@ris/add": "^1.0.0",
+    "@ris/analyze": "^1.0.0",
+    "@ris/build": "^1.0.0",
+    "@ris/deploy": "^1.0.0",
+    "@ris/dev": "^1.0.0",
+    "@ris/init": "^1.0.0",
     "chalk": "^1.1.3",
     "commander": "^2.14.1",
     "npm-updater": "^3.0.3",
