@@ -4,12 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { getRisrc } = require('@ris/utils');
 const webpackBaseConfig = require('./webpack.config.base');
 const constant = require('./constant');
-
-const { env = {} } = getRisrc();
-process.env = { ...process.env, ...env };
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';

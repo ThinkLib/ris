@@ -1,6 +1,6 @@
 # Adding Pages And Components
 
-We usually add a new page or a new component through copy files. This is inefficient and inflexible. So RIS provide template generator to add pages and components quickly.
+We usually add a new page or a new component through copy files. This is inefficient and inflexible. So `RIS` provide template generator to add pages and components quickly.
 
 > The following introduction is base on [standard](https://github.com/risjs/create-ris/tree/master/template/standard) scaffold.
 

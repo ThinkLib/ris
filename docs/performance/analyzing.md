@@ -1,6 +1,6 @@
 # Analyzing the Bundle Size
 
-If you want to analyze the build performance of the project, ris provide `analyze` script to create `stats.json`. And then we can analyze the build preformance through some tools such as [webpack-analyse](http://webpack.github.io/analyse/)、[webpack-bundle-analyzer](https://github.com/th0r/webpack-bundle-analyzer) and [webpack-chart](http://alexkuz.github.io/webpack-chart/).
+If you want to analyze the build performance of the project, ris provide `analyze` script to create `stats.json`. And then we can analyze the build performance with some tools such as [webpack-analyse](http://webpack.github.io/analyse/)、[webpack-bundle-analyzer](https://github.com/th0r/webpack-bundle-analyzer) and [webpack-chart](http://alexkuz.github.io/webpack-chart/).
 
 In the project root folder, we excute:
 
@@ -10,7 +10,7 @@ npm run analyze
 
 ![kk](https://gw.alicdn.com/tfs/TB1n94eASzqK1RjSZFjXXblCFXa-1490-906.jpg)
 
-After the command is executed, the `stats.json` file is generated in the root directory and then you can use it to analyze the build preformance with some tools.
+After the command is executed, the `stats.json` file is generated in the root directory and then you can use it to analyze the build performance with some tools.
 
 ## webpack-analyse
 

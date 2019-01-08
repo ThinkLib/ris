@@ -5,6 +5,7 @@
 We often use [react-router](https://github.com/ReactTraining/react-router) to create our application. Because we want to keep routes in redux store. There we use [connected-react-router](https://github.com/supasate/connected-react-router) to integrate redux to react router.
 
 ## Changing history type
+
 By default, we use `hash history`. If you want to use `browser history`, you can change it in the `src/index.js`.
 
 ```js
@@ -36,4 +37,13 @@ export default [
   },
 ];
 ```
+
+## Router navigating
+There are many ways to navigate between pages.
+
+### Link
+
+### with-router
+
+### dispatch
 

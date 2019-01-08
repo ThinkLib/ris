@@ -1,3 +1,5 @@
 # Styles
 
-## Adding a Stylesheet
+## Support features
+
+## Adding a stylesheet
