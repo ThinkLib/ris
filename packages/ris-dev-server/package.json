@@ -1,6 +1,6 @@
 {
   "name": "@ris/dev-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "description": "ris dev server.",
   "license": "MIT",
@@ -25,8 +25,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@ris/utils": "^1.0.0",
-    "@ris/webpack-config": "^1.0.0",
+    "@ris/utils": "^1.0.1",
+    "@ris/webpack-config": "^1.0.1",
     "address": "^1.0.3",
     "chalk": "^2.3.2",
     "detect-port-alt": "^1.1.5",
